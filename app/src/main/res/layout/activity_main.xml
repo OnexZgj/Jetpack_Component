@@ -16,6 +16,15 @@
         android:text="请求网络数据" />
 
 
+    <Button
+        android:id="@+id/btn_lifecycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="@color/white"
+        android:text="Lifecycle" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_am_list"
         android:layout_width="match_parent"
