@@ -6,6 +6,8 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.onexzgj.inspur.pageingsample.lifecycle.LifecycleActivity
+import com.onexzgj.inspur.pageingsample.livedata.LiveDataActivity
+import com.onexzgj.inspur.pageingsample.livedata.SwitchMapActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +27,14 @@ class MainActivity : AppCompatActivity() {
 
         btn_lifecycle.setOnClickListener {
             startActivity(Intent(this, LifecycleActivity::class.java))
+        }
+
+        btn_livedata.setOnClickListener {
+            startActivity(Intent(this, LiveDataActivity::class.java))
+        }
+
+        btn_switch_map.setOnClickListener {
+            startActivity(Intent(this, SwitchMapActivity::class.java))
         }
 
 

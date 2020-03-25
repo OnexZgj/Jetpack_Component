@@ -17,6 +17,10 @@ class LifecycleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lifecycle)
+
+
+        setTitle("LifeCycle使用")
+
 //        myLocationListener = MyLocationListener(this) {
 //            //更新UI
 //        }

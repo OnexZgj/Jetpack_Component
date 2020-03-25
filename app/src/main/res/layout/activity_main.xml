@@ -25,6 +25,24 @@
         android:text="Lifecycle" />
 
 
+    <Button
+        android:id="@+id/btn_livedata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="@color/white"
+        android:text="LiveData" />
+
+
+    <Button
+        android:id="@+id/btn_switch_map"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="@color/white"
+        android:text="LiveData之 SwitchMap()" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_am_list"
         android:layout_width="match_parent"
