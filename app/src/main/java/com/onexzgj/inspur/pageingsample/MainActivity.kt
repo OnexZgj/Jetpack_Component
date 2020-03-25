@@ -12,6 +12,7 @@ import com.onexzgj.inspur.pageingsample.livedata.SwitchMapActivity
 import com.onexzgj.inspur.pageingsample.paging.NetPagingActivity
 import com.onexzgj.inspur.pageingsample.room.CheeseAdapter
 import com.onexzgj.inspur.pageingsample.room.CheeseViewModel
+import com.onexzgj.inspur.pageingsample.viewmodel.ViewModelActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -43,6 +44,10 @@ class MainActivity : AppCompatActivity() {
 
         btn_merger.setOnClickListener {
             startActivity(Intent(this, MergerLiveDataActivity::class.java))
+        }
+
+        btn_view_model.setOnClickListener {
+            startActivity(Intent(this, ViewModelActivity::class.java))
         }
 
 
