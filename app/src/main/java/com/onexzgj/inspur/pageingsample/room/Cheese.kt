@@ -1,4 +1,4 @@
-package com.onexzgj.inspur.pageingsample
+package com.onexzgj.inspur.pageingsample.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

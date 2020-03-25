@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.onexzgj.inspur.pageingsample.net
+package com.onexzgj.inspur.pageingsample.paging
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource

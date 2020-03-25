@@ -1,4 +1,4 @@
-package com.onexzgj.inspur.pageingsample
+package com.onexzgj.inspur.pageingsample.room
 
 import android.content.Context
 import android.util.Log
@@ -29,7 +29,9 @@ abstract class CheeseDb : RoomDatabase() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)
                             Log.d("paging", "数据库创建了")
-                            initData(context)
+                            initData(
+                                context
+                            )
                         }
 
                         override fun onOpen(db: SupportSQLiteDatabase) {
@@ -47,7 +49,15 @@ abstract class CheeseDb : RoomDatabase() {
          */
         private fun initData(context: Context) {
             Executors.newSingleThreadExecutor().execute {
-                get(context).cheeseDao().insert(CHEESE_DATA.map { Cheese(id = 0, name = it) })
+                get(
+                    context
+                )
+                    .cheeseDao().insert(CHEESE_DATA.map {
+                    Cheese(
+                        id = 0,
+                        name = it
+                    )
+                })
             }
         }
     }

@@ -7,7 +7,11 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.onexzgj.inspur.pageingsample.lifecycle.LifecycleActivity
 import com.onexzgj.inspur.pageingsample.livedata.LiveDataActivity
+import com.onexzgj.inspur.pageingsample.livedata.MergerLiveDataActivity
 import com.onexzgj.inspur.pageingsample.livedata.SwitchMapActivity
+import com.onexzgj.inspur.pageingsample.paging.NetPagingActivity
+import com.onexzgj.inspur.pageingsample.room.CheeseAdapter
+import com.onexzgj.inspur.pageingsample.room.CheeseViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +39,10 @@ class MainActivity : AppCompatActivity() {
 
         btn_switch_map.setOnClickListener {
             startActivity(Intent(this, SwitchMapActivity::class.java))
+        }
+
+        btn_merger.setOnClickListener {
+            startActivity(Intent(this, MergerLiveDataActivity::class.java))
         }
 
 

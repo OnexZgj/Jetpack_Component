@@ -1,13 +1,11 @@
-package com.onexzgj.inspur.pageingsample
+package com.onexzgj.inspur.pageingsample.paging
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.onexzgj.inspur.pageingsample.net.ArticleAdapter
-import com.onexzgj.inspur.pageingsample.net.ArticleViewModel
-import com.onexzgj.inspur.pageingsample.widget.HorItemHorDecoration
+import com.onexzgj.inspur.pageingsample.R
 import com.onexzgj.inspur.pageingsample.widget.ItemHorDecoration
 import kotlinx.android.synthetic.main.activity_second.*
 

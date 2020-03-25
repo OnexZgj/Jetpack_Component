@@ -42,6 +42,14 @@
         android:textColor="@color/white"
         android:text="LiveData之 SwitchMap()" />
 
+    <Button
+        android:id="@+id/btn_merger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="@color/white"
+        android:text="LiveData之 MergerLiveData()" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_am_list"

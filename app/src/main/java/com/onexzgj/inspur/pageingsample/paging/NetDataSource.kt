@@ -1,7 +1,6 @@
-package com.onexzgj.inspur.pageingsample.net
+package com.onexzgj.inspur.pageingsample.paging
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.paging.PageKeyedDataSource
 import com.onexzgj.inspur.onexkt.model.Article
 import io.reactivex.schedulers.Schedulers

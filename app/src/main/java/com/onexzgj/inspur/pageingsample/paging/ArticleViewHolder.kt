@@ -1,9 +1,11 @@
-package com.onexzgj.inspur.pageingsample
+package com.onexzgj.inspur.pageingsample.paging
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.onexzgj.inspur.onexkt.model.Article
+import com.onexzgj.inspur.pageingsample.R
 
 /**
  * des：
@@ -11,17 +13,17 @@ import androidx.recyclerview.widget.RecyclerView
  * time：2020/3/18
  */
 
-class CheeseViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
+class ArticleViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
 ) {
 
     val nameView = itemView.findViewById<TextView>(R.id.tv_info)
 
-    var cheese: Cheese? = null
+    var article: Article? = null
 
-    fun bindData(cheese: Cheese?) {
-        this.cheese = cheese
-        nameView.text = cheese?.name
+    fun bindData(article: Article?) {
+        this.article = article
+        nameView.text = article?.title
     }
 
 }

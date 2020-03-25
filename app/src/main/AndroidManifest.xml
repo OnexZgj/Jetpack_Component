@@ -12,11 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".livedata.SwitchMapActivity"></activity>
+        <activity android:name=".livedata.MergerLiveDataActivity"></activity>
+        <activity android:name=".livedata.SwitchMapActivity" />
         <activity android:name=".livedata.LiveDataActivity" />
         <activity android:name=".lifecycle.MyLifecycleOwnerActivity" />
         <activity android:name=".lifecycle.LifecycleActivity" />
-        <activity android:name=".NetPagingActivity" />
+        <activity android:name=".paging.NetPagingActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

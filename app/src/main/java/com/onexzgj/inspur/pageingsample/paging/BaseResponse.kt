@@ -1,4 +1,4 @@
-package com.onexzgj.inspur.pageingsample.net
+package com.onexzgj.inspur.pageingsample.paging
 
 data class BaseResponse<T>(
     var data: T?,

@@ -1,4 +1,4 @@
-package com.onexzgj.inspur.pageingsample.net
+package com.onexzgj.inspur.pageingsample.paging
 
 import androidx.lifecycle.LiveData
 import androidx.paging.Config

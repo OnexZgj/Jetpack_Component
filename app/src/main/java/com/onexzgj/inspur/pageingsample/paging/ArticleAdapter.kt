@@ -1,9 +1,8 @@
-package com.onexzgj.inspur.pageingsample.net
+package com.onexzgj.inspur.pageingsample.paging
 
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
 import com.onexzgj.inspur.onexkt.model.Article
 
 /**

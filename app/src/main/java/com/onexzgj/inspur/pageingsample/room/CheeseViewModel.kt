@@ -1,9 +1,10 @@
-package com.onexzgj.inspur.pageingsample
+package com.onexzgj.inspur.pageingsample.room
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.paging.Config
 import androidx.paging.toLiveData
+import com.onexzgj.inspur.pageingsample.room.CheeseDb
 
 /**
  * des：
