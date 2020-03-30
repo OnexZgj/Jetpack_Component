@@ -10,19 +10,19 @@ import com.onexzgj.inspur.pageingsample.room.Cheese
  * time：2020/3/18
  */
 @Dao
-interface CheeseDao {
+interface UserDao {
 
-    @Query("select * from cheese order by name ")
-    fun findAllCheese(): DataSource.Factory<Int, Cheese>
+    @Query("select * from user order by name ")
+    fun findAllUser(): DataSource.Factory<Int, User>
 
     @Insert
-    fun insert(cheeses: List<Cheese>)
+    fun insert(users: List<User>)
 
     //这里是更新策略
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(cheese: Cheese)
+    fun insert(user: User)
 
     @Delete
-    fun delete(cheese: Cheese)
+    fun delete(user: User)
 
 }

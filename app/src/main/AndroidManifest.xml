@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".viewmodel.ViewModelActivity"></activity>
+        <activity android:name=".workmanager.WorkManagerActivity"></activity>
+        <activity android:name=".viewmodel.ViewModelActivity" />
         <activity android:name=".livedata.MergerLiveDataActivity" />
         <activity android:name=".livedata.SwitchMapActivity" />
         <activity android:name=".livedata.LiveDataActivity" />
