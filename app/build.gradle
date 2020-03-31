@@ -24,6 +24,16 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion build_versions.compile_sdk
     buildToolsVersion build_versions.build_tools
+
+    signingConfigs {
+        joke {
+            storePassword '123456'
+            keyAlias = 'pipijoke'
+            keyPassword '123456'
+            storeFile file('../key')
+        }
+    }
+
     defaultConfig {
         applicationId "com.onexzgj.inspur.pageingsample"
         minSdkVersion build_versions.min_sdk
@@ -31,12 +41,24 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions{
+            annotationProcessorOptions{
+                arguments=["room.schemaLocation":"$projectDir/schemas".toString()]
+            }
+        }
+
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            signingConfig signingConfigs.joke
+        }
+
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -53,6 +75,7 @@ dependencies {
     implementation deps.recyclerview
     implementation deps.cardview
     implementation deps.room.runtime
+    implementation deps.room.rxjava2
     implementation deps.lifecycle.runtime
     implementation deps.paging_ktx
     implementation deps.kotlin.stdlib

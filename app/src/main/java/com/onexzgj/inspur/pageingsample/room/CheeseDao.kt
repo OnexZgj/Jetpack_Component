@@ -15,6 +15,14 @@ interface CheeseDao {
     @Query("select * from cheese order by name ")
     fun findAllCheese(): DataSource.Factory<Int, Cheese>
 
+
+    @Query("select * from cheese order by name ")
+    fun getAllCheese(): List<Cheese>?
+
+
+    @Query("select * from cheese  where name ==:name ")
+    fun getCheese(name:String): List<Cheese>?
+
     @Insert
     fun insert(cheeses: List<Cheese>)
 
@@ -24,5 +32,4 @@ interface CheeseDao {
 
     @Delete
     fun delete(cheese: Cheese)
-
 }

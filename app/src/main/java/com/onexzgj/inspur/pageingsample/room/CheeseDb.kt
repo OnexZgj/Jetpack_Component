@@ -7,43 +7,34 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import java.lang.Boolean
 import java.util.concurrent.Executors
 
 
 /**
- * des：
+ * des：Database
  * author：onexzgj
  * time：2020/3/18
  */
-@Database(entities = [Cheese::class, User::class], version = 1)
+@Database(entities = [Cheese::class, User::class], version = 1, exportSchema = true)
 abstract class CheeseDb : RoomDatabase() {
 
     abstract fun cheeseDao(): CheeseDao
-
     abstract fun userDao(): UserDao
-
     abstract fun cheeseAndUserDao(): CheeseAndUserDao
-
     abstract fun cheeseAndUsersDao(): CheeseAndUsersDao
-
 
     companion object {
         private var instance: CheeseDb? = null
 
-
-        /**
-         * 数据库版本 1->2 user表格新增了age列
-         */
         val MIGRATION_1_2: Migration = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("ALTER TABLE User ADD COLUMN birthday integer")
+//                database.execSQL("ALTER TABLE User ADD COLUMN birthday integer")
+                database.execSQL(
+                    "CREATE TABLE IF NOT EXISTS `XXX` (`uid` INTEGER PRIMARY KEY autoincrement, `name` TEXT , `userId` INTEGER, 'time' INTEGER)"
+                )
             }
         }
-
-
-        /**
-         * 数据库版本 2->3 新增book表格
-         */
         val MIGRATION_2_3: Migration = object : Migration(2, 3) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL(
@@ -52,20 +43,29 @@ abstract class CheeseDb : RoomDatabase() {
             }
         }
 
+        val MIGRATION_3_4: Migration = object : Migration(3, 4) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                val sql =
+                    "insert into  book (uid,name,userId,time) values (?,?,?,?)"
+                database.execSQL(
+                    sql,
+                    arrayOf(10, "onexzgj", 3, 30)
+                )
+            }
+        }
 
         fun get(context: Context): CheeseDb {
-
             if (instance == null) {
                 instance = Room.databaseBuilder(context, CheeseDb::class.java, "onexzgj")
                     .allowMainThreadQueries()
-                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+//                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)
                     .addCallback(object : RoomDatabase.Callback() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)
                             Log.d("paging", "数据库创建了")
-//                            initData(
-//                                context
-//                            )
+                            initData(
+                                context
+                            )
                         }
 
                         override fun onOpen(db: SupportSQLiteDatabase) {
@@ -90,8 +90,7 @@ abstract class CheeseDb : RoomDatabase() {
                         name = it,
                         temp_id = 1,
                         age = 25,
-                        sex = false,
-                        birthday = 0
+                        sex = 0
                     )
                 })
 

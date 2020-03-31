@@ -1,5 +1,6 @@
 package com.onexzgj.inspur.pageingsample
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,10 +13,14 @@ import com.onexzgj.inspur.pageingsample.livedata.MergerLiveDataActivity
 import com.onexzgj.inspur.pageingsample.livedata.SwitchMapActivity
 import com.onexzgj.inspur.pageingsample.paging.NetPagingActivity
 import com.onexzgj.inspur.pageingsample.room.CheeseAdapter
+import com.onexzgj.inspur.pageingsample.room.CheeseAndUser
 import com.onexzgj.inspur.pageingsample.room.CheeseDb
 import com.onexzgj.inspur.pageingsample.room.CheeseViewModel
 import com.onexzgj.inspur.pageingsample.viewmodel.ViewModelActivity
 import com.onexzgj.inspur.pageingsample.workmanager.WorkManagerActivity
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.functions.Consumer
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<CheeseViewModel>()
 
 
+    @SuppressLint("CheckResult")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -68,6 +74,10 @@ class MainActivity : AppCompatActivity() {
         })
 
 
+        val allCheese = CheeseDb.get(this).cheeseDao().getAllCheese()
+        Log.d("TAG", allCheese?.get(0)?.name + ":" + allCheese?.size)
+
+
         val cheeseAndUser = CheeseDb.get(this).cheeseAndUserDao().getCheeseAndUser()
 
         Log.d("DATA", "" + cheeseAndUser.size)
@@ -77,6 +87,11 @@ class MainActivity : AppCompatActivity() {
 
         Log.d("DATAS", "" + cheeseAndUsers.size)
 
+
+        CheeseDb.get(this).cheeseAndUserDao().findAll()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { t -> Log.d("DATA", "Rxjava:" + t?.size) }
 
 
     }
