@@ -73,25 +73,25 @@ class MainActivity : AppCompatActivity() {
             adapter.submitList(it)
         })
 
-
-        val allCheese = CheeseDb.get(this).cheeseDao().getAllCheese()
-        Log.d("TAG", allCheese?.get(0)?.name + ":" + allCheese?.size)
-
-
-        val cheeseAndUser = CheeseDb.get(this).cheeseAndUserDao().getCheeseAndUser()
-
-        Log.d("DATA", "" + cheeseAndUser.size)
-
-
-        val cheeseAndUsers = CheeseDb.get(this).cheeseAndUsersDao().getCheeseAndUsers()
-
-        Log.d("DATAS", "" + cheeseAndUsers.size)
-
-
-        CheeseDb.get(this).cheeseAndUserDao().findAll()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { t -> Log.d("DATA", "Rxjava:" + t?.size) }
+//        val allCheese = CheeseDb.get(this).cheeseDao().getAllCheese()
+//        if (0 < allCheese.size)
+//            Log.d("TAG", allCheese?.let { ":" + allCheese?.size })
+//
+//
+//        val cheeseAndUser = CheeseDb.get(this).cheeseAndUserDao().getCheeseAndUser()
+//
+//        Log.d("DATA", "" + cheeseAndUser.size)
+//
+//
+//        val cheeseAndUsers = CheeseDb.get(this).cheeseAndUsersDao().getCheeseAndUsers()
+//
+//        Log.d("DATAS", "" + cheeseAndUsers.size)
+//
+//
+//        CheeseDb.get(this).cheeseAndUserDao().findAll()
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribe { t -> Log.d("DATA", "Rxjava:" + t?.size) }
 
 
     }

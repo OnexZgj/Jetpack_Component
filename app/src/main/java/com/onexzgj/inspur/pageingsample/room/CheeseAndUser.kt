@@ -9,12 +9,10 @@ import androidx.room.Relation
  * time：2020/3/27
  */
 data class CheeseAndUser(
-
     @Embedded val owner: Cheese,
     @Relation(
         parentColumn = "id",
         entityColumn = "user_id"
     )
     val user: User
-
 )

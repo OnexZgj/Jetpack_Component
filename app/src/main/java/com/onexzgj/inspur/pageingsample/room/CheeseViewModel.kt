@@ -21,8 +21,4 @@ class CheeseViewModel(app: Application) : AndroidViewModel(app) {
             maxSize = 200
         )
     )
-
-
-
-
 }

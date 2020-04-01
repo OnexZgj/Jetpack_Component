@@ -16,7 +16,7 @@ import java.util.concurrent.Executors
  * author：onexzgj
  * time：2020/3/18
  */
-@Database(entities = [Cheese::class, User::class], version = 1, exportSchema = true)
+@Database(entities = [Cheese::class, User::class], version = 2, exportSchema = true)
 abstract class CheeseDb : RoomDatabase() {
 
     abstract fun cheeseDao(): CheeseDao
@@ -29,10 +29,10 @@ abstract class CheeseDb : RoomDatabase() {
 
         val MIGRATION_1_2: Migration = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
-//                database.execSQL("ALTER TABLE User ADD COLUMN birthday integer")
-                database.execSQL(
-                    "CREATE TABLE IF NOT EXISTS `XXX` (`uid` INTEGER PRIMARY KEY autoincrement, `name` TEXT , `userId` INTEGER, 'time' INTEGER)"
-                )
+                database.execSQL("ALTER TABLE user ADD COLUMN birthday INTEGER NOT NULL DEFAULT 23 ")
+//                database.execSQL(
+//                    "CREATE TABLE IF NOT EXISTS `XXX` (`uid` INTEGER PRIMARY KEY autoincrement, `name` TEXT , `userId` INTEGER, 'time' INTEGER)"
+//                )
             }
         }
         val MIGRATION_2_3: Migration = object : Migration(2, 3) {
@@ -59,17 +59,20 @@ abstract class CheeseDb : RoomDatabase() {
                 instance = Room.databaseBuilder(context, CheeseDb::class.java, "onexzgj")
                     .allowMainThreadQueries()
 //                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)
+                    .addMigrations(MIGRATION_1_2)
                     .addCallback(object : RoomDatabase.Callback() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)
                             Log.d("paging", "数据库创建了")
-                            initData(
-                                context
-                            )
+
                         }
 
                         override fun onOpen(db: SupportSQLiteDatabase) {
                             super.onOpen(db)
+                            initData(
+                                context
+                            )
+
                         }
                     })
                     .build()
@@ -84,15 +87,15 @@ abstract class CheeseDb : RoomDatabase() {
         private fun initData(context: Context) {
             Executors.newSingleThreadExecutor().execute {
 
-                get(context).userDao().insert(USER_DATA.map {
-                    User(
-                        user_id = 0,
-                        name = it,
-                        temp_id = 1,
-                        age = 25,
-                        sex = 0
-                    )
-                })
+//                get(context).userDao().insert(USER_DATA.map {
+//                    User(
+//                        user_id = 0,
+//                        name = it,
+//                        temp_id = 1,
+//                        age = 25,
+//                        sex = 0
+//                    )
+//                })
 
                 get(context).cheeseDao().insert(CHEESE_DATA.map {
                     Cheese(

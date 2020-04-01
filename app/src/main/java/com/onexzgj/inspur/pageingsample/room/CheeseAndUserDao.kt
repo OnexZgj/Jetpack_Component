@@ -17,17 +17,8 @@ interface CheeseAndUserDao {
     @Query("SELECT * FROM Cheese")
     fun getCheeseAndUser(): List<CheeseAndUser>
 
-
-
     @Transaction
     @Query("SELECT * FROM Cheese")
     fun findAll(): Flowable<List<CheeseAndUser>>
-
-
-
-
-
-
-
 
 }

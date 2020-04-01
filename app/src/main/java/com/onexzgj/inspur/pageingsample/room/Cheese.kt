@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
  * author：onexzgj
  * time：2020/3/18
  */
-@Entity()
+@Entity
 data class Cheese(
     @PrimaryKey(autoGenerate = true) val id: Int, val name: String
 )

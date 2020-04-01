@@ -17,7 +17,7 @@ interface CheeseDao {
 
 
     @Query("select * from cheese order by name ")
-    fun getAllCheese(): List<Cheese>?
+    fun getAllCheese(): List<Cheese>
 
 
     @Query("select * from cheese  where name ==:name ")
