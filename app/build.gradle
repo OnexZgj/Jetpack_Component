@@ -42,9 +42,9 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        javaCompileOptions{
-            annotationProcessorOptions{
-                arguments=["room.schemaLocation":"$projectDir/schemas".toString()]
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
             }
         }
 
@@ -100,5 +100,12 @@ dependencies {
     androidTestImplementation deps.room.testing
     androidTestImplementation deps.arch_core.testing
 
+    //页面刷新组件
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0'
+
+
+    //material组件
+    api 'com.google.android.material:material:1.1.0-alpha10'
     kapt deps.room.compiler
 }

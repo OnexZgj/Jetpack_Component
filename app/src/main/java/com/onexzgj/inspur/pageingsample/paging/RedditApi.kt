@@ -45,7 +45,7 @@ interface RedditApi {
         fun create(): RedditApi = create(HttpUrl.parse(BASE_URL)!!)
         fun create(httpUrl: HttpUrl): RedditApi {
             val logger = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger {
-                Log.d("API", it)
+                Log.e("API", it)
             })
             logger.level = HttpLoggingInterceptor.Level.BASIC
 

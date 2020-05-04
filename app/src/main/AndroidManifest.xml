@@ -11,8 +11,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".workmanager.WorkManagerActivity"></activity>
+        android:theme="@style/Theme.MaterialComponents.Light">
+        <activity android:name=".pagingpro.PagingProActivity"></activity>
+        <activity android:name=".workmanager.WorkManagerActivity" />
         <activity android:name=".viewmodel.ViewModelActivity" />
         <activity android:name=".livedata.MergerLiveDataActivity" />
         <activity android:name=".livedata.SwitchMapActivity" />
@@ -20,6 +21,7 @@
         <activity android:name=".lifecycle.MyLifecycleOwnerActivity" />
         <activity android:name=".lifecycle.LifecycleActivity" />
         <activity android:name=".paging.NetPagingActivity" />
+        <activity android:name=".pagingplus.PagingRefreshActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

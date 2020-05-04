@@ -12,6 +12,8 @@ import com.onexzgj.inspur.pageingsample.livedata.LiveDataActivity
 import com.onexzgj.inspur.pageingsample.livedata.MergerLiveDataActivity
 import com.onexzgj.inspur.pageingsample.livedata.SwitchMapActivity
 import com.onexzgj.inspur.pageingsample.paging.NetPagingActivity
+import com.onexzgj.inspur.pageingsample.pagingplus.PagingRefreshActivity
+import com.onexzgj.inspur.pageingsample.pagingpro.PagingProActivity
 import com.onexzgj.inspur.pageingsample.room.CheeseAdapter
 import com.onexzgj.inspur.pageingsample.room.CheeseAndUser
 import com.onexzgj.inspur.pageingsample.room.CheeseDb
@@ -37,6 +39,14 @@ class MainActivity : AppCompatActivity() {
         btn_net.setOnClickListener {
             //            getArticle()
             startActivity(Intent(this, NetPagingActivity::class.java))
+        }
+
+        btn_net_refresh.setOnClickListener {
+            startActivity(Intent(this, PagingRefreshActivity::class.java))
+        }
+
+        btn_net_refresh_pro.setOnClickListener {
+            startActivity(Intent(this,PagingProActivity::class.java))
         }
 
         btn_lifecycle.setOnClickListener {

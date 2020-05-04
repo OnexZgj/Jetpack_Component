@@ -1,8 +1,9 @@
-package com.onexzgj.inspur.pageingsample.paging
+package com.onexzgj.inspur.pageingsample.pagingplus
 
 import android.annotation.SuppressLint
 import androidx.paging.PageKeyedDataSource
 import com.onexzgj.inspur.onexkt.model.Article
+import com.onexzgj.inspur.pageingsample.paging.RedditApi
 import io.reactivex.schedulers.Schedulers
 
 /**
@@ -10,7 +11,7 @@ import io.reactivex.schedulers.Schedulers
  * author：onexzgj
  * time：2020/3/18
  */
-class NetDataSource : PageKeyedDataSource<Int, Article>() {
+class ArticlPlusDataSource : PageKeyedDataSource<Int, Article>() {
 
     var pageNo = 0
 

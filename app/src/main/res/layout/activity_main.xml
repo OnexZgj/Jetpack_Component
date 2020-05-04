@@ -17,6 +17,24 @@
 
 
     <Button
+        android:id="@+id/btn_net_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="@color/white"
+        android:text="Paging刷新和加载更过" />
+
+
+    <Button
+        android:id="@+id/btn_net_refresh_pro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="@color/white"
+        android:text="Paging刷新和加载更多" />
+
+
+    <Button
         android:id="@+id/btn_lifecycle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
