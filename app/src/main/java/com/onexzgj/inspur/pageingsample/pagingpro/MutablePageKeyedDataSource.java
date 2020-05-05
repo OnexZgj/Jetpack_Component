@@ -12,8 +12,6 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * 具体原理见 {@link MutableItemKeyedDataSource}
- *
  * @param <Value>
  */
 @SuppressLint("RestrictedApi")

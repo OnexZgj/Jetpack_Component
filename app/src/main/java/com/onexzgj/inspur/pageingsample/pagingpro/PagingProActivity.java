@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSON;
 import com.onexzgj.inspur.pageingsample.R;
 import com.onexzgj.inspur.pageingsample.view.EmptyView;
 import com.onexzgj.inspur.pageingsample.viewmodel.MyViewModel;
+import com.onexzgj.inspur.pageingsample.widget.HorItemHorDecoration;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.RefreshState;
@@ -57,7 +58,7 @@ public class PagingProActivity extends AppCompatActivity implements OnRefreshLis
         smartRefreshLayout.setOnLoadMoreListener(this);
 
 
-
+        recyclerView.addItemDecoration(new HorItemHorDecoration(this));
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 
         adapter = new PagingProAdapter(this);
